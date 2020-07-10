@@ -220,6 +220,8 @@ GameObject:
   - component: {fileID: 398823346}
   - component: {fileID: 398823347}
   - component: {fileID: 398823348}
+  - component: {fileID: 398823350}
+  - component: {fileID: 398823349}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -283,14 +285,6 @@ MonoBehaviour:
   MaxZ: 50
   Roll: 1
   Pitch: 1
-  Weapon: {fileID: 6283473644841780049, guid: 7d9f9a714d3a51d478a9a62881c3363c, type: 3}
-  Gun: {fileID: 685849825}
-  ShotDelay: 0.3
-  SideWeapon: {fileID: 7760567024731925880, guid: 35a7f37ecd842c44ab9a0d4cae836e85,
-    type: 3}
-  LeftGun: {fileID: 1644370980}
-  RightGun: {fileID: 75063396}
-  SideAngle: 45
 --- !u!65 &398823347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -318,6 +312,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 1437371872933546875, guid: ab10549c4b0008d489348a9b0f6a3307,
     type: 3}
+--- !u!114 &398823349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398823343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f0fd1f83d307144aad1060707f38d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SideWeapon: {fileID: 7760567024731925880, guid: 35a7f37ecd842c44ab9a0d4cae836e85,
+    type: 3}
+  LeftGun: {fileID: 1644370980}
+  RightGun: {fileID: 75063396}
+  SideAngle: 45
+--- !u!114 &398823350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398823343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8e18b5c55f1de408287585a6c3ea12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 6283473644841780049, guid: 7d9f9a714d3a51d478a9a62881c3363c, type: 3}
+  Gun: {fileID: 685849825}
+  ShotDelay: 0.3
 --- !u!1001 &415682809
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -710,6 +736,8 @@ MonoBehaviour:
   Asteroid2: {fileID: 1134123114329995514, guid: 8ce2fcf5af236be44b8e75099a429859,
     type: 3}
   Asteroid3: {fileID: 5652626570894825352, guid: 9160252b9eede2f42abcb88518b29e57,
+    type: 3}
+  SimpleEnemy: {fileID: 1996341900324707546, guid: c2540559f8de7c84299a51184e535c31,
     type: 3}
   MinDelay: 0.6
   MaxDelay: 1

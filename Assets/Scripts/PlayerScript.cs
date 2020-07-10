@@ -1,6 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(ArmedAndDangerous))]
+[RequireComponent(typeof(SideArmed))]
+[RequireComponent(typeof(DestroyScript))]
 public class PlayerScript : MonoBehaviour
 {
     #region Move
@@ -16,62 +20,32 @@ public class PlayerScript : MonoBehaviour
     public float Pitch = 0.5f;
     #endregion Move
 
-    #region Firepower
-    #region Main
-    public GameObject Weapon;
-    public Transform Gun;
-    public float ShotDelay = 0.3f;
-    private float _nextShotTime;
-    #endregion Main
-
-    #region Side
-    public GameObject SideWeapon;
-    public Transform LeftGun;
-    public Transform RightGun;
-    public float SideAngle = 45;
-    private float _sideShotDelay;
-    private float _nextSideShotTime;
-    #endregion Side
-    #endregion Firepower
-
+    private DestroyScript _demolish;
     private Rigidbody _body;
+    private ArmedAndDangerous _mainGun;
+    private SideArmed _sideGun;
 
     // Start is called before the first frame update
     void Start()
     {
+        _demolish = GetComponent<DestroyScript>();
         _body = GetComponent<Rigidbody>();
-        _sideShotDelay = ShotDelay / 2;
+        _mainGun = GetComponent<ArmedAndDangerous>();
+        _sideGun = GetComponent<SideArmed>();
+        _sideGun.SetDelay(_mainGun.ShotDelay / 2);
     }
 
     // Update is called once per frame
     void Update()
     {
         MovePlayer();
-        ShootMain();
-        ShootSide();
-    }
-
-    private void ShootSide()
-    {
-        if (Time.time > _nextSideShotTime && Input.GetButton("Fire2"))
+        if (_mainGun && Input.GetButton("Fire1"))
         {
-            var shot = Instantiate(SideWeapon, LeftGun.position, Quaternion.Euler(0, -SideAngle, 0));
-            var script = shot.GetComponent<LaserScript>();
-            script.ShotDirection = LaserScript.Direction.Left;
-            shot = Instantiate(SideWeapon, RightGun.position, Quaternion.Euler(0, SideAngle, 0));
-            script = shot.GetComponent<LaserScript>();
-            script.ShotDirection = LaserScript.Direction.Right;
-
-            _nextSideShotTime = Time.time + _sideShotDelay;
+            _mainGun.Fire();
         }
-    }
-
-    private void ShootMain()
-    {
-        if (Time.time > _nextShotTime && Input.GetButton("Fire1"))
-        { 
-            Instantiate(Weapon, Gun.position, Quaternion.identity);
-            _nextShotTime = Time.time + ShotDelay;
+        if (_sideGun && Input.GetButton("Fire2"))
+        {
+            _sideGun.Fire();
         }
     }
 
@@ -87,5 +61,18 @@ public class PlayerScript : MonoBehaviour
         _body.position = new Vector3(clampedX, _body.position.y, clampedZ);
 
         _body.rotation = Quaternion.Euler(_body.velocity.z * Pitch, 0, _body.velocity.x * Roll);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (string.Equals(other.gameObject.tag, "enemy", StringComparison.OrdinalIgnoreCase))
+        {
+            var demolish = other.gameObject.GetComponent<DestroyScript>();
+            if (demolish != null)
+            {
+                demolish.Demolish();
+            }
+            _demolish.Demolish();
+        }
     }
 }

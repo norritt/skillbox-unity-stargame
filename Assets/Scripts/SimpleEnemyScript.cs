@@ -1,19 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-public class AsteroidScript : MonoBehaviour
+[RequireComponent(typeof(ArmedAndDangerous))]
+[RequireComponent(typeof(DestroyScript))]
+public class SimpleEnemyScript : MonoBehaviour
 {
-    public float AngularSpeed = 5;
-
-    private Rigidbody _asteroid;
     private DestroyScript _destroyable;
+    private ArmedAndDangerous _mainGun;
 
     // Start is called before the first frame update
     void Start()
     {
-        _asteroid = GetComponent<Rigidbody>();
-        _asteroid.angularVelocity = UnityEngine.Random.insideUnitSphere * AngularSpeed;
         _destroyable = GetComponent<DestroyScript>();
+        _mainGun = GetComponent<ArmedAndDangerous>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _mainGun.Fire();
     }
 
     private void OnTriggerEnter(Collider other)
