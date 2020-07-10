@@ -705,10 +705,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4b33dc58576034481811b5a9361820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Asteroid: {fileID: 3826101244323072801, guid: 2b3ca997db33e6d478b6a30383284129,
+  Asteroid1: {fileID: 3826101244323072801, guid: 2b3ca997db33e6d478b6a30383284129,
+    type: 3}
+  Asteroid2: {fileID: 1134123114329995514, guid: 8ce2fcf5af236be44b8e75099a429859,
+    type: 3}
+  Asteroid3: {fileID: 5652626570894825352, guid: 9160252b9eede2f42abcb88518b29e57,
     type: 3}
   MinDelay: 0.6
-  MaxDelay: 0.1
+  MaxDelay: 1
 --- !u!23 &1022620997
 MeshRenderer:
   m_ObjectHideFlags: 0

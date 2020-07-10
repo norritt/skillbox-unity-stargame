@@ -7,8 +7,6 @@ public class AsteroidScript : MonoBehaviour
     public float MaxSpeed = 20;
     public float AngularSpeed = 5;
 
-    public GameObject Explosion;
-
     private Rigidbody _asteroid;
     private DestroyScript _destroyable;
 
