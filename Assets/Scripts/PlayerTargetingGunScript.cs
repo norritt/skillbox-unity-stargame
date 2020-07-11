@@ -29,6 +29,10 @@ public class PlayerTargetingGunScript : MonoBehaviour
                 _lastKnownPostion = _target.transform.position;
             }
             var direction = Vector3.Angle(new Vector3(0.0f, transform.position.y, 10.0f), _lastKnownPostion - transform.position);
+            if (_lastKnownPostion.x > transform.position.x)
+            {
+                direction = 360 - direction;
+            }
             Instantiate(Weapon, Gun.position, Quaternion.Euler(0, -direction, 0));
             _nextShotTime = Time.time + ShotDelay;
         }
