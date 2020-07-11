@@ -1,28 +1,37 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(DestroyScript))]
 public class BasicEnemyExplosionScript : MonoBehaviour
 {
     private DestroyScript _destroyable;
+    private HashSet<string> _ignorable;
 
     void Start()
     {
         _destroyable = GetComponent<DestroyScript>();
+        _ignorable = new HashSet<string>(new[] { "boundary", "asteroid", "enemy" }, StringComparer.OrdinalIgnoreCase);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (string.Equals(other.gameObject.tag, "boundary", StringComparison.OrdinalIgnoreCase) ||
-            string.Equals(other.gameObject.tag, "asteroid", StringComparison.OrdinalIgnoreCase) ||
-            string.Equals(other.gameObject.tag, "enemy", StringComparison.OrdinalIgnoreCase))
+        if (_ignorable.Contains(other.gameObject.tag))
         {
             return;
         }
-        var destroyable = other.GetComponentInParent<DestroyScript>();
-        if (destroyable != null)
+        var hitObject = other.GetComponentInParent<HitScript>();
+        if (hitObject != null)
         {
-            destroyable.Demolish();
+            hitObject.Hit();
+        }
+        else
+        {
+            var destroyable = other.GetComponentInParent<DestroyScript>();
+            if (destroyable != null)
+            {
+                destroyable.Demolish();
+            }
         }
         _destroyable.Demolish();
     }

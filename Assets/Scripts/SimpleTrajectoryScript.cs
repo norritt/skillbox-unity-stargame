@@ -10,7 +10,7 @@ public class SimpleTrajectoryScript : MonoBehaviour
 
     void Start()
     {
-        float randomSpeed = -Random.Range(MinSpeed, MaxSpeed);
+        var randomSpeed = -Random.Range(MinSpeed, MaxSpeed);
         _movable = GetComponent<Rigidbody>();
         _movable.velocity = new Vector3(0, 0, randomSpeed);
     }

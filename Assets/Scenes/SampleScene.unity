@@ -179,8 +179,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 54, y: 10, z: 147.42255}
-  m_Center: {x: 0, y: 0, z: 5.1450653}
+  m_Size: {x: 54, y: 10, z: 123.79108}
+  m_Center: {x: 0, y: 0, z: 16.9608}
 --- !u!4 &172465780
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398823343}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -41.5}
+  m_LocalPosition: {x: 0, y: 0, z: -42.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1915011394}
@@ -282,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c10c0da083a44941b13f6ad6cb57407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VerticalSpeed: 15
-  HorizontalSpeed: 30
+  VerticalSpeed: 20
+  HorizontalSpeed: 35
   MinX: -30
   MaxX: 30
   MinZ: -46
@@ -813,6 +813,8 @@ MonoBehaviour:
   AdvancedEnemy: {fileID: 3313038514810269571, guid: 1b5f9a932cbc2c745b96c1480fe7c7bf,
     type: 3}
   Bonus: {fileID: 4317184248240403746, guid: 03e30cd90a9a8674f8497d144bf83829, type: 3}
+  EvilEnemy: {fileID: 250422247120933274, guid: d6f79bd60ad98164d896924f9ce50d3a,
+    type: 3}
   MinDelay: 0.6
   MaxDelay: 1.5
 --- !u!23 &1022620997
@@ -1487,7 +1489,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
