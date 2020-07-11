@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class SimpleTrajectoryScript : MonoBehaviour
 {
     public float MinSpeed = 8;
     public float MaxSpeed = 20;
+
     private Rigidbody _movable;
 
     void Start()

@@ -7,6 +7,7 @@ TagManager:
   - FxTemporaire
   - boundary
   - asteroid
+  - enemy
   layers:
   - Default
   - TransparentFX

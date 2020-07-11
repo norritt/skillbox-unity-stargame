@@ -6,6 +6,8 @@ public class EmitterScript : MonoBehaviour
     public GameObject Asteroid2;
     public GameObject Asteroid3;
     public GameObject SimpleEnemy;
+    public GameObject AdvancedEnemy;
+    public GameObject Target;
     public float MinDelay = 0.3f;
     public float MaxDelay = 0.6f;
 
@@ -15,7 +17,7 @@ public class EmitterScript : MonoBehaviour
 
     private void Start()
     {
-        _enemies = new[] { Asteroid1, Asteroid2, Asteroid3, SimpleEnemy };
+        _enemies = new[] { Asteroid1, Asteroid2, Asteroid3, SimpleEnemy, AdvancedEnemy };
     }
 
     // Update is called once per frame

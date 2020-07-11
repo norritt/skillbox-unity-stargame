@@ -7,16 +7,12 @@ public class ArmedAndDangerous : MonoBehaviour
     public float ShotDelay = 0.3f;
     private float _nextShotTime;
 
-    private void Start()
-    {
-        _nextShotTime = Time.time;
-    }
-
-    internal void Fire()
+    internal void Fire(bool isPlayerShip)
     {
         if (Time.time > _nextShotTime)
         {
-            Instantiate(Weapon, Gun.position, Quaternion.identity);
+            var angle = isPlayerShip ? 0 : -180;
+            Instantiate(Weapon, Gun.position, Quaternion.Euler(0, angle, 0));
             _nextShotTime = Time.time + ShotDelay;
         }
     }

@@ -18,12 +18,8 @@ public class SideArmed : MonoBehaviour
     {
         if (Time.time > _nextSideShotTime)
         {
-            var shot = Instantiate(SideWeapon, LeftGun.position, Quaternion.Euler(0, -SideAngle, 0));
-            var script = shot.GetComponent<LaserScript>();
-            script.ShotDirection = LaserScript.Direction.Left;
-            shot = Instantiate(SideWeapon, RightGun.position, Quaternion.Euler(0, SideAngle, 0));
-            script = shot.GetComponent<LaserScript>();
-            script.ShotDirection = LaserScript.Direction.Right;
+            Instantiate(SideWeapon, LeftGun.position, Quaternion.Euler(0, -SideAngle, 0));
+            Instantiate(SideWeapon, RightGun.position, Quaternion.Euler(0, SideAngle, 0));
 
             _nextSideShotTime = Time.time + _sideShotDelay;
         }

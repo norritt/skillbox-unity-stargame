@@ -41,8 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa67d742fca4794da5071ce7c498c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 8
-  MaxSpeed: 12
   AngularSpeed: 8
 --- !u!114 &1402010823686323651
 MonoBehaviour:
@@ -72,6 +70,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSpeed: 8
   MaxSpeed: 12
+--- !u!114 &6502040095381467563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826101244323072801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cac8016f160fb245b9238363de7defb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3826101244323106177
 PrefabInstance:
   m_ObjectHideFlags: 0

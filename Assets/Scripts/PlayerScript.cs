@@ -41,7 +41,7 @@ public class PlayerScript : MonoBehaviour
         MovePlayer();
         if (_mainGun && Input.GetButton("Fire1"))
         {
-            _mainGun.Fire();
+            _mainGun.Fire(isPlayerShip: true);
         }
         if (_sideGun && Input.GetButton("Fire2"))
         {
