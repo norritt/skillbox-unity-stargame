@@ -24,7 +24,7 @@ public class EmitterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > _nextLaunchTime && GameControllerScript.Instance.IsStarted())
+        if (Time.time > _nextLaunchTime)
         {
             Launch();
         }
