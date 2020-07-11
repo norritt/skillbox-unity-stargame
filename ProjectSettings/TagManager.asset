@@ -8,6 +8,7 @@ TagManager:
   - boundary
   - asteroid
   - enemy
+  - bonus
   layers:
   - Default
   - TransparentFX

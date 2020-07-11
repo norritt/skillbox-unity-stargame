@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(ArmedAndDangerous))]
 [RequireComponent(typeof(SideArmed))]
 [RequireComponent(typeof(DestroyScript))]
+[RequireComponent(typeof(HitScript))]
+[RequireComponent(typeof(Parameters))]
 public class PlayerScript : MonoBehaviour
 {
     #region Move
@@ -21,17 +23,21 @@ public class PlayerScript : MonoBehaviour
     #endregion Move
 
     private DestroyScript _demolish;
+    private HitScript _hit;
     private Rigidbody _body;
     private ArmedAndDangerous _mainGun;
     private SideArmed _sideGun;
+    private Parameters _parameters;
 
     // Start is called before the first frame update
     void Start()
     {
         _demolish = GetComponent<DestroyScript>();
+        _hit = GetComponent<HitScript>();
         _body = GetComponent<Rigidbody>();
         _mainGun = GetComponent<ArmedAndDangerous>();
         _sideGun = GetComponent<SideArmed>();
+        _parameters = GetComponent<Parameters>();
         _sideGun.SetDelay(_mainGun.ShotDelay / 2);
     }
 
@@ -72,7 +78,23 @@ public class PlayerScript : MonoBehaviour
             {
                 demolish.Demolish();
             }
-            _demolish.Demolish();
+            if (_parameters.RemoveShield())
+            {
+                _hit.Hit();
+            }
+            else
+            {
+                _demolish.Demolish();
+            }
+        }
+        if (string.Equals(other.gameObject.tag, "bonus", StringComparison.OrdinalIgnoreCase))
+        {
+            var demolish = other.gameObject.GetComponent<DestroyScript>();
+            if (demolish != null)
+            {
+                demolish.Demolish();
+            }
+            _parameters.AddShield();
         }
     }
 }
