@@ -38,6 +38,10 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameControllerScript.Instance.IsStarted())
+        {
+            return;
+        }
         MovePlayer();
         if (_mainGun && Input.GetButton("Fire1"))
         {
@@ -73,6 +77,7 @@ public class PlayerScript : MonoBehaviour
                 demolish.Demolish();
             }
             _parameters.AddShield();
+            GameControllerScript.Instance.IncreaseScore(50);
         }
     }
 }
