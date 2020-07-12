@@ -5,6 +5,7 @@
 [RequireComponent(typeof(SideArmed))]
 [RequireComponent(typeof(Parameters))]
 [RequireComponent(typeof(TagListComponent))]
+[RequireComponent(typeof(UniversalInputController))]
 public class PlayerScript : MonoBehaviour
 {
     #region Move
@@ -22,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     private SideArmed _sideGun;
     private Parameters _parameters;
     private TagListComponent _tagList;
+    private UniversalInputController _inputController;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class PlayerScript : MonoBehaviour
         _sideGun = GetComponent<SideArmed>();
         _parameters = GetComponent<Parameters>();
         _tagList = GetComponent<TagListComponent>();
+        _inputController = GetComponent<UniversalInputController>();
         _sideGun.SetDelay(_mainGun.ShotDelay / 2);
     }
 
@@ -50,8 +53,8 @@ public class PlayerScript : MonoBehaviour
 
     private void MovePlayer()
     {
-        var dx = Input.GetAxis("Horizontal");
-        var dz = Input.GetAxis("Vertical");
+        var dx = _inputController.GetX();
+        var dz = _inputController.GetZ();
 
         _body.velocity = new Vector3(dx * _parameters.HorizontalSpeed, 0, dz * _parameters.VerticalSpeed);
 
