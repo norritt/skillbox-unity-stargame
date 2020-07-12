@@ -54,6 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f1041188267914690085be765d2f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowedToCollect:
+  - missile
   Points: 1
 --- !u!114 &1402010823686323651
 MonoBehaviour:

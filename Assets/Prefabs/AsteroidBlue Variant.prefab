@@ -70,6 +70,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 8632165357784172834, guid: 81d86d638c3f8d847a9bce69c3cab48a,
     type: 3}
+--- !u!114 &2425268206862734827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134123114329995514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f1041188267914690085be765d2f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllowedToCollect:
+  - missile
+  Points: 1
 --- !u!114 &3784987033158334839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,19 +112,6 @@ MonoBehaviour:
   Tags:
   - Player
   - turnedEnemy
---- !u!114 &2425268206862734827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134123114329995514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f1041188267914690085be765d2f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Points: 1
 --- !u!1001 &1134123114330029658
 PrefabInstance:
   m_ObjectHideFlags: 0

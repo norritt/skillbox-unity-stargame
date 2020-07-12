@@ -7,17 +7,26 @@ public class GameControllerScript : MonoBehaviour
     public static GameControllerScript Instance;
 
     public Text ScoreText;
+    public Button AgainButton;
+    public Button MenuButton;
+    public GameObject MenuScreen;
 
     private int _score = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         _score = 0;
+        MenuScreen.SetActive(false);
         Instance = this;
+        MenuButton.onClick.AddListener(CloseGame);
+        AgainButton.onClick.AddListener(RestartGame);
     }
 
-    // Update is called once per frame
+    private void RestartGame()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
     internal void IncreaseScore(int increment)
     {
         _score += increment;
@@ -29,7 +38,12 @@ public class GameControllerScript : MonoBehaviour
         ScoreText.text = $"Score: {_score}";
     }
 
-    internal void CloseGame()
+    internal void OpenMenu()
+    {
+        MenuScreen.SetActive(true);
+    }
+
+    private void CloseGame()
     {
         SceneManager.LoadScene("MenuScene");
     }

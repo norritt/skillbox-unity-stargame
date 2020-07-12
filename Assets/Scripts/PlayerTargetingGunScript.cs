@@ -8,7 +8,8 @@ public class PlayerTargetingGunScript : MonoBehaviour
     public GameObject Weapon;
     public Transform Gun;
     public float ShotDelay = 0.3f;
-    public string PlayerObjectName;
+    [Tags]
+    public string PlayerTag;
 
     private GameObject _target;
     private float _nextShotTime;
@@ -17,7 +18,7 @@ public class PlayerTargetingGunScript : MonoBehaviour
     private void Start()
     {
         _nextShotTime = Time.time;
-        _target = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => string.Equals(x.name, PlayerObjectName, StringComparison.OrdinalIgnoreCase));
+        _target = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.CompareTag(PlayerTag));
     }
 
     internal void Fire()

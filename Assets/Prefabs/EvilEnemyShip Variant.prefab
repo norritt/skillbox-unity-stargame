@@ -131,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSpeed: 8
   MaxSpeed: 20
-  PlayerObjectName: PlayerShip
   RotationSpeed: 25
+  PlayerTag: Player
   BoundaryTag: boundary
 --- !u!114 &4501974330296723942
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   Weapon: {fileID: 7954472570959473377, guid: b3293ed252d515f47aa388655f003e27, type: 3}
   Gun: {fileID: 250422245210457557}
   ShotDelay: 1
-  PlayerObjectName: PlayerShip
+  PlayerTag: Player
 --- !u!114 &8606211850237049405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03f1041188267914690085be765d2f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AllowedToCollect:
+  - missile
   Points: 25
 --- !u!1 &250552158316498965
 GameObject:

@@ -9,9 +9,10 @@ public class RotatingEnemyTrajectoryScript : MonoBehaviour
 {
     public float MinSpeed = 8;
     public float MaxSpeed = 20;
-    public string PlayerObjectName;
     public float RotationSpeed;
 
+    [Tags]
+    public string PlayerTag;
     [Tags]
     public string BoundaryTag;
 
@@ -23,7 +24,7 @@ public class RotatingEnemyTrajectoryScript : MonoBehaviour
 
     void Start()
     {
-        _target = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => string.Equals(x.name, PlayerObjectName, StringComparison.OrdinalIgnoreCase));
+        _target = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(x => x.CompareTag(PlayerTag));
         _state = GetComponent<EnemyState>();
 
         var randomSpeed = -UnityEngine.Random.Range(MinSpeed, MaxSpeed);

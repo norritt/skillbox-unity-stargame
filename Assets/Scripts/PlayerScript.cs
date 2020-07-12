@@ -78,6 +78,6 @@ public class PlayerScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameControllerScript.Instance.CloseGame();
+        GameControllerScript.Instance.OpenMenu();
     }
 }

@@ -27,7 +27,7 @@ MonoBehaviour:
   Weapon: {fileID: 7954472570959473377, guid: b3293ed252d515f47aa388655f003e27, type: 3}
   Gun: {fileID: 3313038513975049164}
   ShotDelay: 1
-  PlayerObjectName: PlayerShip
+  PlayerTag: Player
 --- !u!114 &1653258605510944931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +143,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8357828606776400428, guid: c2540559f8de7c84299a51184e535c31,
         type: 3}
+      propertyPath: AllowedToCollect.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357828606776400428, guid: c2540559f8de7c84299a51184e535c31,
+        type: 3}
       propertyPath: Points
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357828606776400428, guid: c2540559f8de7c84299a51184e535c31,
+        type: 3}
+      propertyPath: AllowedToCollect.Array.data[0]
+      value: missile
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5249836848026813237, guid: c2540559f8de7c84299a51184e535c31, type: 3}
