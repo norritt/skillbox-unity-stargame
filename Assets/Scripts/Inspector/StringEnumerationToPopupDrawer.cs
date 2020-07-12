@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 [CustomPropertyDrawer(typeof(StringEnumerationToPopupAttribute))]
 public class StringEnumerationToPopupDrawer :
@@ -37,3 +39,4 @@ public class StringEnumerationToPopupDrawer :
         property.stringValue = stringLst[selectedIndex];
     }
 }
+#endif

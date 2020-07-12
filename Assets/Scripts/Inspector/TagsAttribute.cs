@@ -1,10 +1,12 @@
-﻿using UnityEditorInternal;
-
-public class TagsAttribute : 
+﻿public class TagsAttribute : 
     StringEnumerationToPopupAttribute
 {
     public TagsAttribute() :
-        base(typeof(InternalEditorUtility), nameof(InternalEditorUtility.tags))
+#if UNITY_EDITOR
+        base(typeof(UnityEditorInternal.InternalEditorUtility), nameof(UnityEditorInternal.InternalEditorUtility.tags))
+#else // UNITY_EDITOR
+        base(typeof(object), string.Empty)
+#endif // UNITY_EDITOR
     {
     }
 }
