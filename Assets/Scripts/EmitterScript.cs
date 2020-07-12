@@ -2,27 +2,19 @@
 
 public class EmitterScript : MonoBehaviour
 {
-    public GameObject Asteroid1;
-    public GameObject Asteroid2;
-    public GameObject Asteroid3;
-    public GameObject SimpleEnemy;
-    public GameObject AdvancedEnemy;
-    public GameObject Bonus;
-    public GameObject EvilEnemy;
-    public float MinDelay = 0.3f;
-    public float MaxDelay = 0.6f;
+    public GameObject[] Objects;
+    public float StartDelay = 0f;
+    public float MinDelay = 0.5f;
+    public float MaxDelay = 2f;
 
     private float _nextLaunchTime;
 
-    private GameObject[] _enemies;
-
     private void Start()
     {
-        _enemies = new[] { Asteroid1, Asteroid2, Asteroid3, SimpleEnemy, AdvancedEnemy, Bonus, Bonus, EvilEnemy };
+        _nextLaunchTime = Time.time + StartDelay;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Time.time > _nextLaunchTime)
         {
@@ -35,7 +27,7 @@ public class EmitterScript : MonoBehaviour
         _nextLaunchTime = Time.time + Random.Range(MinDelay, MaxDelay);
         var xPosition = Random.Range(transform.position.x - transform.localScale.x / 2, transform.position.x + transform.localScale.x / 2);
         var launchPoint = new Vector3(xPosition, 0, transform.position.z);
-        var index = Random.Range(0, _enemies.Length);
-        Instantiate(_enemies[index], launchPoint, Quaternion.identity);
+        var index = Random.Range(0, Objects.Length);
+        Instantiate(Objects[index], launchPoint, Quaternion.identity);
     }
 }

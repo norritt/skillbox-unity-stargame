@@ -1,22 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(DestroyScript))]
+[RequireComponent(typeof(TagListComponent))]
 public class BasicEnemyExplosionScript : MonoBehaviour
 {
     private DestroyScript _destroyable;
-    private HashSet<string> _ignorable;
+    private TagListComponent _targetTagsComponent;
 
     void Start()
     {
         _destroyable = GetComponent<DestroyScript>();
-        _ignorable = new HashSet<string>(new[] { "boundary", "asteroid", "enemy" }, StringComparer.OrdinalIgnoreCase);
+        _targetTagsComponent = GetComponent<TagListComponent>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_ignorable.Contains(other.gameObject.tag))
+        if (!_targetTagsComponent.Contains(other.gameObject.tag))
         {
             return;
         }

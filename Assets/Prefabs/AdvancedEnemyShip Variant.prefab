@@ -12,20 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2010c1b78becb6b40b051e5926a191ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1276441626414733739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3313038514810269571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9cc594664fb784197155ce96cfb0f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinSpeed: 8
-  MaxSpeed: 20
 --- !u!114 &1564544054256639675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,6 +28,20 @@ MonoBehaviour:
   Gun: {fileID: 3313038513975049164}
   ShotDelay: 1
   PlayerObjectName: PlayerShip
+--- !u!114 &1653258605510944931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313038514810269571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2f1ad0eea261f40baab5d738edf035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tags:
+  - Player
 --- !u!114 &5750937294915092006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +54,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cac8016f160fb245b9238363de7defb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8590660145279049283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313038514810269571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9cc594664fb784197155ce96cfb0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinSpeed: 8
+  MaxSpeed: 20
+  BoundaryTag: boundary
 --- !u!1001 &3913109760628568921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,6 +140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AdvancedEnemyShip Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8357828606776400428, guid: c2540559f8de7c84299a51184e535c31,
+        type: 3}
+      propertyPath: Points
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5249836848026813237, guid: c2540559f8de7c84299a51184e535c31, type: 3}

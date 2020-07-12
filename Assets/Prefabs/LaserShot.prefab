@@ -15,9 +15,11 @@ GameObject:
   - component: {fileID: 513663072469226159}
   - component: {fileID: 2775366078816902786}
   - component: {fileID: 6435898547862921153}
+  - component: {fileID: 3492616313141690659}
+  - component: {fileID: 8789496466651488059}
   m_Layer: 0
   m_Name: LaserShot
-  m_TagString: Untagged
+  m_TagString: missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,6 +205,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3492616313141690659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283473644841780049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2f1ad0eea261f40baab5d738edf035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tags:
+  - asteroid
+  - enemy
+--- !u!114 &8789496466651488059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6283473644841780049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da255930d961d99428922375a94160f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6283473646434280087
 GameObject:
   m_ObjectHideFlags: 0

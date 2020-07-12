@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8983757649614357240}
   - component: {fileID: 8375333255136110352}
   - component: {fileID: 2989022190319047615}
+  - component: {fileID: 4374351355298498583}
   m_Layer: 0
   m_Name: BonusShield
   m_TagString: bonus
@@ -139,3 +140,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSpeed: 8
   MaxSpeed: 20
+--- !u!114 &4374351355298498583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317184248240403746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa67d742fca4794da5071ce7c498c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AngularSpeed: 5

@@ -43,6 +43,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Explosion: {fileID: 6016098306030326499, guid: 22606674837ad74448da975fd41ea4b4,
     type: 3}
+--- !u!114 &2029063626537810644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652626570894825352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf2f1ad0eea261f40baab5d738edf035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tags:
+  - Player
+  - turnedEnemy
+--- !u!114 &4293095833459412837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652626570894825352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cac8016f160fb245b9238363de7defb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7038823577852775913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AngularSpeed: 5
---- !u!114 &4293095833459412837
+--- !u!114 &4857091775348526664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,9 +106,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5652626570894825352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cac8016f160fb245b9238363de7defb, type: 3}
+  m_Script: {fileID: 11500000, guid: 03f1041188267914690085be765d2f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Points: 1
 --- !u!1001 &5652626570894856488
 PrefabInstance:
   m_ObjectHideFlags: 0

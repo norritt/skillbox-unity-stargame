@@ -118,6 +118,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LaserSideShot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6283473644841780049, guid: 7d9f9a714d3a51d478a9a62881c3363c,
+        type: 3}
+      propertyPath: m_TagString
+      value: missile
+      objectReference: {fileID: 0}
     - target: {fileID: 6283473644841780054, guid: 7d9f9a714d3a51d478a9a62881c3363c,
         type: 3}
       propertyPath: m_LocalPosition.x

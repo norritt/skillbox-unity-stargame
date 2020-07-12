@@ -9,6 +9,8 @@ TagManager:
   - asteroid
   - enemy
   - bonus
+  - missile
+  - turnedEnemy
   layers:
   - Default
   - TransparentFX

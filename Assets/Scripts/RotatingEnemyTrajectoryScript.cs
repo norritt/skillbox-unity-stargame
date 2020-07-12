@@ -12,6 +12,9 @@ public class RotatingEnemyTrajectoryScript : MonoBehaviour
     public string PlayerObjectName;
     public float RotationSpeed;
 
+    [Tags]
+    public string BoundaryTag;
+
     private Rigidbody _movable;
     private GameObject _target;
     private EnemyState _state;
@@ -35,7 +38,7 @@ public class RotatingEnemyTrajectoryScript : MonoBehaviour
         {
             _lastKnownPosition = _target.transform.position;
         }
-        if (!_state.IsRotated() && _lastKnownPosition.z > transform.position.z)
+        if (_state.State != EnemyState.EvilState.Rotated && _lastKnownPosition.z > transform.position.z)
         {
             var sign = _lastKnownPosition.x > transform.position.x ? -1 : +1;
             _angle += sign * RotationSpeed * Time.deltaTime;
@@ -44,13 +47,13 @@ public class RotatingEnemyTrajectoryScript : MonoBehaviour
         if (transform.rotation.eulerAngles.y < 185 && 175 < transform.rotation.eulerAngles.y)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            _state.SetRotated();
+            _state.State = EnemyState.EvilState.Rotated;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (string.Equals(other.gameObject.tag, "boundary", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(other.gameObject.tag, BoundaryTag, StringComparison.OrdinalIgnoreCase))
         {
             _movable.velocity = Vector3.zero;
         }

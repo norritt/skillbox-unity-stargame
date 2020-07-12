@@ -1,16 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(ArmedAndDangerous))]
 [RequireComponent(typeof(SideArmed))]
 [RequireComponent(typeof(Parameters))]
+[RequireComponent(typeof(TagListComponent))]
 public class PlayerScript : MonoBehaviour
 {
     #region Move
-    public float VerticalSpeed = 15.0f;
-    public float HorizontalSpeed = 15.0f;
-
     public float MinX;
     public float MaxX;
     public float MinZ;
@@ -24,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     private ArmedAndDangerous _mainGun;
     private SideArmed _sideGun;
     private Parameters _parameters;
+    private TagListComponent _tagList;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +30,7 @@ public class PlayerScript : MonoBehaviour
         _mainGun = GetComponent<ArmedAndDangerous>();
         _sideGun = GetComponent<SideArmed>();
         _parameters = GetComponent<Parameters>();
+        _tagList = GetComponent<TagListComponent>();
         _sideGun.SetDelay(_mainGun.ShotDelay / 2);
     }
 
@@ -54,7 +53,7 @@ public class PlayerScript : MonoBehaviour
         var dx = Input.GetAxis("Horizontal");
         var dz = Input.GetAxis("Vertical");
 
-        _body.velocity = new Vector3(dx * HorizontalSpeed, 0, dz * VerticalSpeed);
+        _body.velocity = new Vector3(dx * _parameters.HorizontalSpeed, 0, dz * _parameters.VerticalSpeed);
 
         var clampedX = Mathf.Clamp(_body.position.x, MinX, MaxX);
         var clampedZ = Mathf.Clamp(_body.position.z, MinZ, MaxZ);
@@ -65,16 +64,16 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (string.Equals(other.gameObject.tag, "bonus", StringComparison.OrdinalIgnoreCase))
+        if (!_tagList.Contains(other.gameObject.tag))
         {
-            var demolish = other.gameObject.GetComponent<DestroyScript>();
-            if (demolish != null)
-            {
-                demolish.Demolish();
-            }
-            _parameters.AddShield();
-            GameControllerScript.Instance.IncreaseScore(50);
+            return;
         }
+        var demolish = other.gameObject.GetComponent<DestroyScript>();
+        if (demolish != null)
+        {
+            demolish.Demolish();
+        }
+        _parameters.AddShield();
     }
 
     private void OnDestroy()

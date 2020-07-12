@@ -7,6 +7,9 @@ public class AdvancedTrajectoryScript : MonoBehaviour
     public float MinSpeed = 8;
     public float MaxSpeed = 20;
 
+    [Tags]
+    public string BoundaryTag;
+
     private Rigidbody _movable;
 
     void Start()
@@ -20,7 +23,7 @@ public class AdvancedTrajectoryScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (string.Equals(other.gameObject.tag, "boundary", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(other.gameObject.tag, BoundaryTag, StringComparison.OrdinalIgnoreCase))
         {
             _movable.velocity = new Vector3(- _movable.velocity.x, _movable.velocity.y, _movable.velocity.z);
         }

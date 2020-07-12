@@ -1,20 +1,15 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Parameters : MonoBehaviour
 {
-    private Text _text;
+    public float VerticalSpeed = 20.0f;
+    public float HorizontalSpeed = 35.0f;
+    public int MaxShieldCount = 3;
+
+    public Text Text;
 
     private int _shields = 0;
-
-    private void Start()
-    {
-        var canvas = SceneManager.GetActiveScene().GetRootGameObjects().FirstOrDefault(go => string.Equals(go.name, "Canvas", StringComparison.OrdinalIgnoreCase));
-        _text = canvas.GetComponentsInChildren<Text>().FirstOrDefault(go => string.Equals(go.name, "ShieldsBox", StringComparison.OrdinalIgnoreCase));
-    }
 
     internal bool RemoveShield()
     {
@@ -25,7 +20,7 @@ public class Parameters : MonoBehaviour
 
     internal void AddShield()
     {
-        if (_shields < 3)
+        if (_shields < MaxShieldCount)
         {
             _shields++;
         }
@@ -33,9 +28,9 @@ public class Parameters : MonoBehaviour
 
     private void OnGUI()
     {
-        if (_text != null)
+        if (Text != null)
         {
-            _text.text = $"Shields: {_shields}";
+            Text.text = $"Shields: {_shields}";
         }
     }
 }
